@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Pets - Adopción</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="logo-container">
+            <img id="logo" src="imagenes/logo.png" alt="World Pets Logo">
+            <h1 class="text-center"> World Pets - Adopción de Perros</h1>
+        </div>
+        
+        <div class="container" id="interview-page">
+            <div class="interview-container">
+                <h2>Entrevista al adoptante</h2>
+                <form id="adoption-form">
+                    <div class="form-group">
+                        <label for="q1">¿Tienes experiencia previa con mascotas?</label>
+                        <select class="form-control" id="q1">
+                            <option>Si</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="q2">¿Tienes suficiente espacio en tu hogar?</label>
+                        <select class="form-control" id="q2">
+                            <option>Si</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="q3">¿Puedes cubrir los gastos de cuidado?</label>
+                        <select class="form-control" id="q3">
+                            <option>Si</option>
+                            <option>No</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-success" onclick="completeAdoption()">Finalizar adopción</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container d-none" id="success-page">
+            <div class="alert alert-success" role="alert">
+                ¡Felicidades! La adopción ha sido exitosa.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function completeAdoption() {
+            // saca la entrevista y muestra el mensaje de adopción exitosa
+            document.getElementById('interview-page').classList.add('d-none');
+            document.getElementById('success-page').classList.remove('d-none');
+        }
+    </script>
+</body>
+</html>
