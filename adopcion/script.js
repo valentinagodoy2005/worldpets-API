@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(data => {  
         displayDogs(data);
-        document.getElementById('output').textContent = JSON.stringify(data); 
+        //document.getElementById('output').textContent = JSON.stringify(data); 
     });
 });
 
