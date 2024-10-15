@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Perros (Simulando una API)
-    //const dogs = [
-    //    { name: 'Max', age: 2, img: 'https://placedog.net/505/300', interested: false },
-    //    { name: 'Luna', age: 3, img: 'https://placedog.net/506/300', interested: false },
-    //    { name: 'Bella', age: 1, img: 'https://placedog.net/507/300', interested: false },
-    //    { name: 'Charlie', age: 4, img: 'https://placedog.net/508/300', interested: false },
-    //    { name: 'Lucy', age: 5, img: 'https://placedog.net/509/300', interested: false }
-    //];
+    // const dogs = [
+    //     { name: 'Max', age: 2, img: 'https://placedog.net/505/300', interested: false },
+    //     { name: 'Luna', age: 3, img: 'https://placedog.net/506/300', interested: false },
+    //     { name: 'Bella', age: 1, img: 'https://placedog.net/507/300', interested: false },
+    //     { name: 'Charlie', age: 4, img: 'https://placedog.net/508/300', interested: false },
+    //     { name: 'Lucy', age: 5, img: 'https://placedog.net/509/300', interested: false }
+    // ];
 
     const dogCards = document.getElementById('dog-cards');
 
