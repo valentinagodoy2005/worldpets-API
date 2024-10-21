@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Código para index.html
-
     // Redirigir a add-dog.html cuando se presiona el botón "Agregar un perro"
     const addDogButton = document.getElementById('add-dog-button');
     
@@ -65,17 +63,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicialmente, ocultar las tarjetas (mostrar vacío)
     dogCards.innerHTML = '';
 
-    
-
-    // Cargar datos desde dogs.json
-    fetch('dogs.json')
-    .then(response => response.json())
-    .then(data => {  
-        displayDogs(data);
-        //document.getElementById('output').textContent = JSON.stringify(data); 
+    // Filtrar perros
+    document.getElementById('filter-button').addEventListener('click', () => {
+        fetch('dogs.json')
+            .then(response => response.json())
+            .then(data => {
+                displayDogs(data);
+            })
     });
 });
-
 
 
 
@@ -101,8 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>`;
         dogList.appendChild(card);
     };
-
-
 
     // Botón para regresar a la página principal
     const backButton = document.getElementById('back-to-index');
