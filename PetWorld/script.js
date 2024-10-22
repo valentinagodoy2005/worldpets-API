@@ -1,22 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     const productosContainer = document.getElementById('productos-container');
-
-    // Función para obtener productos de la API
+    // Función para obtener productos
     function obtenerProductos() {
-        fetch('https://api.ejemplo.com/productos')
+        fetch('productos.json')
             .then(response => response.json())
             .then(data => {
                 mostrarProductos(data);
             })
-            .catch(error => {
-                console.error('Error al obtener productos:', error);
-                productosContainer.innerHTML = '<p>Lo sentimos, no se pudieron cargar los productos.</p>';
-            });
     }
 
     // Función para mostrar productos en la página
     function mostrarProductos(productos) {
-        productosContainer.innerHTML = ''; // Limpiar contenedor
+        productosContainer.innerHTML = '';
         productos.forEach(producto => {
             const productoElement = document.createElement('div');
             productoElement.className = 'product';
