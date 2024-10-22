@@ -3,30 +3,30 @@
         "nombre": "Collar para Perros",
         "precio": 1500.00,
         "descripcion": "Collar ajustable y cómodo para perros pequeños y medianos.",
-        "imagen": "https://via.placeholder.com/300x200"
+        "imagen": "imagenes/collar de perros.png"
     },
     {
         "nombre": "Cama para perros",
         "precio": 2200.00,
         "descripcion": "Cama suave y acogedora para gatos de todos los tamaños.",
-        "imagen": "https://via.placeholder.com/300x200"
+        "imagen": "imagenes/cama de perros.png"
     },
     {
         "nombre": "Comedero Automático",
         "precio": 4500.00,
         "descripcion": "Comedero automático para alimentar a tu mascota a tiempo.",
-        "imagen": "https://via.placeholder.com/300x200"
+        "imagen": "imagenes/comedero automatico.png"
     },
     {
-        "nombre": "Rascador para perros",
+        "nombre": "Cepillo de perros",
         "precio": 3200.00,
         "descripcion": "Rascador resistente para mantener a tu gato entretenido.",
-        "imagen": "https://via.placeholder.com/300x200"
+        "imagen": "imagenes/cepillo de perros.jpg"
     },
     {
         "nombre": "Pelota de Juguete",
         "precio": 300.00,
         "descripcion": "Pelota resistente y segura para jugar con tu perro.",
-        "imagen": "https://via.placeholder.com/300x200"
+        "imagen": "imagenes/pelotas de perros.png"
     }
 ]
