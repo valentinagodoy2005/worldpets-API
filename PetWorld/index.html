@@ -12,7 +12,6 @@
     <h1>World Pets</h1>
     <nav>
         <a href="../index.html">Inicio</a>
-        <a href="#productos">Productos</a>
         <a href="#blog">Blog</a>
         <a href="#contacto">Contacto</a>
     </nav>
@@ -71,64 +70,8 @@
 </footer>
 </section>
 
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const productosContainer = document.getElementById('productos-container');
-
-        // Simulación de la carga del archivo JSON
-        const productos = [
-            {
-                "nombre": "Collar para Perros",
-                "precio": 1500.00,
-                "descripcion": "Collar ajustable y cómodo para perros pequeños y medianos.",
-                "imagen": "imagenes/collar de perros.png"
-            },
-            {
-                "nombre": "Cama para perros",
-                "precio": 2200.00,
-                "descripcion": "Cama suave y acogedora para gatos de todos los tamaños.",
-                "imagen": "imagenes/cama de perros.png"
-            },
-            {
-                "nombre": "Comedero Automático",
-                "precio": 4500.00,
-                "descripcion": "Comedero automático para alimentar a tu mascota a tiempo.",
-                "imagen": "imagenes/comedero automatico.png"
-            },
-            {
-                "nombre": "Cepillo de perros",
-                "precio": 3200.00,
-                "descripcion": "Rascador resistente para mantener a tu gato entretenido.",
-                "imagen": "imagenes/cepillo de perros.jpg"
-            },
-            {
-                "nombre": "Pelota de Juguete",
-                "precio": 300.00,
-                "descripcion": "Pelota resistente y segura para jugar con tu perro.",
-                "imagen": "imagenes/pelotas de perros.png"
-            }
-        ];
-
-        function mostrarProductos(productos) {
-            productosContainer.innerHTML = ''; // Limpiar contenedor
-            productos.forEach(producto => {
-                const productoElement = document.createElement('div');
-                productoElement.className = 'product';
-                productoElement.innerHTML = `
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
-                    <h4>${producto.nombre}</h4>
-                    <p>$${producto.precio.toFixed(2)}</p>
-                    <p>${producto.descripcion}</p>
-                    <button>Agregar al Carrito</button>
-                `;
-                productosContainer.appendChild(productoElement);
-            });
-        }
-
-        mostrarProductos(productos);
-    });
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
