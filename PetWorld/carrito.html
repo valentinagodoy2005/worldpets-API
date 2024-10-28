@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        .cart-icon img {
+            width: 40px;
+        }
+
+        .cart-icon span {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 8px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.8em;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            width: 30%;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            color: green;
+            font-size: 1.2em;
+            margin-top: 20px;
+            display: none;
+        }
+
+        /* Estilos del cuadro emergente del carrito */
+        .cart-popup {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 60px;
+            width: 300px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .cart-popup h4 {
+            margin-top: 0;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-item button {
+            background-color: #e74c3c;
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .cart-summary {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .cart-quantity {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-quantity button {
+            background-color: #4CAF50;
+            padding: 5px 10px;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .cart-quantity span {
+            padding: 0 10px;
+        }
+
+        /* Botones de limpiar y comprar */
+        .cart-actions {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .cart-actions button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .btn-clear {
+            background-color: #e74c3c;
+        }
+
+        .btn-buy {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Carrito de Compras</h1>
+    <div class="cart-icon" onclick="toggleCart()">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-cart.png" alt="Carrito">
+        <span id="cart-count">0</span>
+    </div>
+</header>
+
+<div class="container">
+    <div class="message" id="message">¡Agregado con éxito!</div>
+
+    <!-- Sección de Productos -->
+    <section class="products">
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Producto 1">
+            <h3>Producto 1</h3>
+            <p>$20.00</p>
+            <button onclick="addToCart('Producto 1', 20)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Producto 2">
+            <h3>Producto 2</h3>
+            <p>$35.00</p>
+            <button onclick="addToCart('Producto 2', 35)">Agregar al Carrito</button>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/300x200" alt="Producto 3">
+            <h3>Producto 3</h3>
+            <p>$15.00</p>
+            <button onclick="addToCart('Producto 3', 15)">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <!-- Cuadro emergente del carrito -->
+    <div class="cart-popup" id="cart-popup">
+        <h4>Carrito de Compras</h4>
+        <div id="cart-items">
+            <!-- Los productos agregados aparecerán aquí -->
+        </div>
+        <div class="cart-summary">
+            <h3>Total: $<span id="cart-total">0.00</span></h3>
+        </div>
+        <div class="cart-actions">
+            <button class="btn-clear" onclick="clearCart()">Limpiar Carrito</button>
+            <button class="btn-buy" onclick="buyProducts()">Comprar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Variables para el carrito
+    let cart = [];
+
+    // Función para agregar productos al carrito
+    function addToCart(productName, productPrice) {
+        const existingProduct = cart.find(item => item.name === productName);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+            existingProduct.totalPrice += productPrice;
+        } else {
+            const newProduct = { name: productName, price: productPrice, quantity: 1, totalPrice: productPrice };
+            cart.push(newProduct);
+        }
+
+        // Mostrar mensaje de éxito
+        const message = document.getElementById('message');
+        message.style.display = 'block';
+        setTimeout(() => {
+            message.style.display = 'none';
+        }, 2000);
+
+        // Actualizar contador de productos en el icono
+        updateCartCount();
+
+        // Mostrar los productos en el carrito
+        renderCart();
+    }
+
+    // Función para incrementar la cantidad de un producto
+    function incrementQuantity(index) {
+        cart[index].quantity += 1;
+        cart[index].totalPrice += cart[index].price;
+        renderCart();
+    }
+
+    // Función para disminuir la cantidad de un producto
+    function decrementQuantity(index) {
+        if (cart[index].quantity > 1) {
+            cart[index].quantity -= 1;
+            cart[index].totalPrice -= cart[index].price;
+        } else {
+            cart.splice(index, 1);  // Eliminar el producto si la cantidad es 1
+        }
+        renderCart();
+        updateCartCount();
+    }
+
+    // Función para eliminar todos los productos del carrito
+    function clearCart() {
+        cart = [];
+        renderCart();
+        updateCartCount();
+    }
+
+    // Función para realizar la compra
+    function buyProducts() {
+        if (cart.length === 0) {
+            alert("No tienes productos en el carrito.");
+            return;
+        }
+
+        alert("¡Compra realizada con éxito!");
+        clearCart();  // Limpiar el carrito después de la compra
+    }
+
+    // Función para mostrar los productos en el carrito
+    function renderCart() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = ''; // Limpiar contenido previo
+
+        let total = 0;
+        cart.forEach((item, index) => {
+            total += item.totalPrice;
+
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <span>${item.name} - $${item.totalPrice.toFixed(2)} (x${item.quantity})</span>
+                <div class="cart-quantity">
+                    <button onclick="decrementQuantity(${index})">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="incrementQuantity(${index})">+</button>
+                </div>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        });
+
+        document.getElementById('cart-total').textContent = total.toFixed(2);
+    }
+
+    // Función para actualizar el contador de productos en el icono del carrito
+    function updateCartCount() {
+        const cartCount = document.getElementById('cart-count');
+        cartCount.textContent = cart.length;
+    }
+
+    // Función para mostrar/ocultar el carrito
+    function toggleCart() {
+        const cartPopup = document.getElementById('cart-popup');
+        cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>
