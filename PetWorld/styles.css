@@ -25,6 +25,19 @@ header {
     width: 40px;
 }
 
+/* Logo */
+.logo-container {
+    position: absolute; /* Pone el logo en el borde de la página */
+    top: 20px; /* Distancia desde el borde superior */
+    left: 20px; /* Distancia desde el borde izquierdo */
+}
+
+#logo {
+    width: 100px; /* Ajusta el tamaño del logo */
+    height: 80px;
+}
+
+
 /* Estilos del cuadro emergente del carrito */
 .cart-popup {
     display: none;
