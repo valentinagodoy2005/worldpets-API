@@ -14,6 +14,17 @@ header {
     position: relative;
 }
 
+.cart-icon {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.cart-icon img {
+    width: 40px;
+}
+
 /* Estilos del cuadro emergente del carrito */
 .cart-popup {
     display: none;
@@ -203,6 +214,3 @@ footer input[type="submit"] {
     cursor: pointer;
     border-radius: 5px;
 }
- 
-
-
