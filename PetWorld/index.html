@@ -25,19 +25,47 @@
         </div>
     </nav>
 </header>
-    <!-- Cuadro emergente del carrito -->
-    <div class="cart-popup" id="cart-popup">
-        <div id="cart-items">
-            <!-- Los productos agregados aparecerán aquí -->
-        </div>
-        <div class="cart-summary">
-            <h3>Total: $<span id="cart-total">0.00</span></h3>
-        </div>
-        <div class="cart-actions">
-            <button class="btn-clear" onclick="clearCart()">Limpiar Carrito</button>
-            <button class="btn-buy" onclick="buyProducts()">Comprar</button>
-        </div>
+
+<!-- Cuadro emergente del carrito -->
+<div class="cart-popup" id="cart-popup">
+    <h4>Carrito de Compras</h4>
+    <div id="cart-items">
+        <!-- Los productos agregados aparecerán aquí -->
     </div>
+    <div class="container">
+      <!--  <div class="message" id="message">¡Agregado con éxito!</div>-->
+    </div>
+    <div class="cart-summary">
+        <h3>Total: $<span id="cart-total">0.00</span></h3>
+    </div>
+    <div class="cart-actions">
+        <button class="btn-clear" onclick="clearCart()">Limpiar Carrito</button>
+    <button onclick="openForm()" class="open-button">Realizar Compra</button>
+    </div>
+</div>
+
+<!-- Ventana emergente de formulario -->
+<div class="form-popup" id="paymentForm">
+  <form action="/submit-payment" class="form-container">
+    <h2>Información de pago</h2>
+
+    <label for="name"><b>Nombre</b></label>
+    <input type="text" placeholder="Nombre completo" name="name" required>
+
+    <label for="address"><b>Dirección</b></label>
+    <input type="text" placeholder="Dirección de envío" name="address" required>
+
+    <label for="payment"><b>Método de pago</b></label>
+    <select name="payment" required>
+      <option value="credit-card">Tarjeta de crédito</option>
+      <option value="paypal">PayPal</option>
+      <option value="transfer">Transferencia bancaria</option>
+    </select>
+
+    <button type="submit" class="btn">Enviar</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancelar</button>
+  </form>
+</div>
 
 <section class="hero">
     <h2>Encuentra todo lo que tu mascota necesita </h2>
