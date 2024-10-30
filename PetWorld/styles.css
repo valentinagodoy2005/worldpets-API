@@ -149,7 +149,7 @@ nav a {
 }
 
 button {
-    background-color: #4caf50; /* Verde */
+    background-color: #4caf50;
     border: none;
     padding: 10px 20px;
     color: white;
@@ -170,7 +170,7 @@ button:active {
 
 .section h3 {
     margin-bottom: 20px;
-    color: #4caf50; /* Verde */
+    color: #4caf50;
 }
 
 .products, .blog {
@@ -187,7 +187,7 @@ button:active {
     flex: 1;
     max-width: 30%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: #fff; /* Blanco */
+    background-color: #fff;
 }
 
 .product img, .blog-post img {
@@ -196,14 +196,14 @@ button:active {
 }
 
 footer {
-    background-color: #4caf50; /* Verde */
+    background-color: #4caf50;
     color: white;
     text-align: center;
     padding: 20px 0;
 }
 
 footer a {
-    color: #f5f5dc; /* Beige */
+    color: #f5f5dc;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -221,9 +221,71 @@ footer input[type="email"] {
 
 footer input[type="submit"] {
     padding: 10px 20px;
-    background-color: #4caf50; /* Verde */
+    background-color: #4caf50;
     border: none;
     color: white;
     cursor: pointer;
     border-radius: 5px;
+}
+ 
+/* formulario compra */
+/* Botón para abrir el formulario */
+.open-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Ventana emergente del formulario de compra */
+.form-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    background-color: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+/* Estilo del formulario */
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #2f7931;
+}
+
+.form-container input[type="text"],
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Botones del formulario */
+.form-container .btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+    margin: 5px 0;
+    text-align: center;
+}
+
+.form-container .cancel {
+    background-color: #f44336;
 }
