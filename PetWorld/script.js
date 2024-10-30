@@ -154,3 +154,25 @@ function toggleCart() {
     const cartPopup = document.getElementById('cart-popup');
     cartPopup.style.display = cartPopup.style.display === 'block' ? 'none' : 'block';
 }
+
+
+// formulario de compra
+function openForm() {
+    document.getElementById("paymentForm").style.display = "block";
+}
+  
+function closeForm() {
+    document.getElementById("paymentForm").style.display = "none";
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const paymentForm = document.querySelector("#paymentForm form");
+    paymentForm.addEventListener("submit", processPurchase);
+});
+
+function processPurchase(event) {
+    event.preventDefault();  // Evita el envío real del formulario
+    alert("¡Compra realizada con éxito!");
+    closeForm();
+    clearCart();
+}
